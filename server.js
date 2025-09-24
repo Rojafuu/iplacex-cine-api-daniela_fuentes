@@ -4,7 +4,8 @@ import cors from 'cors'
 import client from './src/common/db.js'
 import peliculaRoutes from './src/pelicula/routes.js'
 import ActorRoutes from './src/actor/routes.js'
-const PORT = process.env.PORT || 3000;
+
+const PORTS = 3000 || 4000
 const app = express()
 
 app.use(express.json())
@@ -19,12 +20,9 @@ try {
   await client.connect();
   console.log('Conectado al Cluster');
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
-});
-
+  app.listen(PORTS, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORTS}`);
+  });
 } catch (error) {
   console.log('Ha ocurrido un error al conectar al cluster de Atlas:', error.message);
 }
-
-
