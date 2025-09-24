@@ -4,7 +4,7 @@ import cors from 'cors'
 import client from './src/common/db.js'
 import peliculaRoutes from './src/pelicula/routes.js'
 import ActorRoutes from './src/actor/routes.js'
-
+const PORT = process.env.PORT || 3000;
 const PORTS = 3000 || 4000
 const app = express()
 
