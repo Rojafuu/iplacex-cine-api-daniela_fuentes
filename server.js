@@ -20,9 +20,12 @@ try {
   await client.connect();
   console.log('Conectado al Cluster');
 
-  app.listen(PORTS, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORTS}`);
-  });
+app.listen(PORTS, '0.0.0.0', () => {
+  console.log(`Servidor corriendo en http://0.0.0.0:${PORTS}`);
+});
+
 } catch (error) {
   console.log('Ha ocurrido un error al conectar al cluster de Atlas:', error.message);
 }
+
+
